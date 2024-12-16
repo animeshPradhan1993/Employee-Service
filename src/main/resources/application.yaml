@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: Employee-Service
+  h2:
+    console.enabled: true
+  jackson:
+    default-property-inclusion: NON_EMPTY
+server:
+  port: 8081
+employeeDatabase:
+  basePath: http://localhost:8080
