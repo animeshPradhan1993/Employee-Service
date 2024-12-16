@@ -5,6 +5,7 @@ navigate to the project root directory and run ./mvnw clean install
 
 navigate to the project root directory and run ./mvnw spring-boot:run
 
+# other information
 The endpoints can be accessed at localhost:8081 this setting can be  modified by changing the application port
 in application.yaml
 
@@ -27,3 +28,8 @@ Coverage reports(index.html) can be accessed in the site folder inside the gener
 
 To connect to the Employee database application basepath can be configured using the property employeeDatabase:
 basePath:application.yaml
+
+on deletion of a role all the projects will be assigned to Employee 1 
+
+Please donot delete the employee 1 and role 1 as employee 1 is the the default employee to whom the projects are assigned.
+

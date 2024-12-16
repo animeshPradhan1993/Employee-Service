@@ -5,6 +5,7 @@ import com.animesh.generated.employee.ApiException;
 import com.animesh.generated.employee.database.EmployeeControllerApi;
 import com.animesh.generated.employee.database.model.Employee;
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class EmployeeService {
     }
 
     public void deleteEmployee(String employeeId) throws ApiException {
-        employeeApi.findEmployeeById(employeeId);
+        employeeApi.deleteEmployee(employeeId);
     }
 
     public Employee findEmployeeById(String employeeId) throws ApiException {
@@ -39,9 +40,12 @@ public class EmployeeService {
 
     public Employee updateEmployee(String employeeId, Employee employee) throws ApiException {
         Employee employee1 = findEmployeeById(employeeId);
-        employee.setId(employee1.getId());
-        employee.setRoleId(employee.getRoleId());
-        employee.setPassword(employee1.getPassword());
+        if (!employee1.getRoleId().isEmpty()) {
+            employee1.setRoleId(employee.getRoleId());
+        }
+        if (!StringUtils.isEmpty(employee.getName())) {
+            employee1.setName(employee.getName());
+        }
         return employeeApi.updateEmployee(employeeId, employee);
     }
 
