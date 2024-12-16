@@ -3,12 +3,12 @@ package com.animesh.employee.service;
 import com.animesh.employee.service.controller.EmployeeController;
 import com.animesh.employee.service.exception.handling.ErrorDetails;
 import com.animesh.employee.service.resource.Employee;
+import com.animesh.generated.employee.ApiException;
+import com.animesh.generated.employee.database.EmployeeControllerApi;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import com.animesh.generated.employee.ApiException;
-import com.animesh.generated.employee.database.EmployeeControllerApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -159,7 +159,7 @@ public class EmployeeControllerTest {
         when(employeeApi.retrieveEmployeeIdAndPassword(Mockito.any())).thenReturn(createAdmin());
         when(employeeApi.findEmployeeById(Mockito.any())).thenReturn(createAdmin());
         when(employeeApi.createNewEmployee(Mockito.any())).thenReturn(createEmployeeExternalModel());
-        when(employeeApi.updateEmployee(Mockito.any(),Mockito.any())).thenReturn(createEmployeeExternalModel());
+        when(employeeApi.updateEmployee(Mockito.any(), Mockito.any())).thenReturn(createEmployeeExternalModel());
     }
 }
 

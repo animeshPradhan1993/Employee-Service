@@ -42,7 +42,7 @@ public class RoleControllerTests {
     @Test
     public void testRoleDoesNotExist() throws ApiException {
         when(employeeApi.retrieveEmployeeIdAndPassword(Mockito.any())).thenReturn(createAdmin());
-        when(roleControllerApi.deleteRole(Mockito.any())).thenThrow(new ApiException(404,"Role Not Found"));
+        when(roleControllerApi.deleteRole(Mockito.any())).thenThrow(new ApiException(404, "Role Not Found"));
         ResponseEntity<String> resultCreatedEmployee = testRestTemplate.exchange("/roles/RandomRole", HttpMethod.DELETE, createRoleEntity(), String.class);
 
         assertEquals(resultCreatedEmployee.getStatusCode(), HttpStatus.NOT_FOUND);
